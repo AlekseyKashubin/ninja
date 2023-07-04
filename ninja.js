@@ -10,18 +10,34 @@ class Ninja {
     }
 
     sayName() {
-        console.log(`hello my name is ${this.name}`)
+        console.log(`Hello you can call me ${this.name}`)
     }
     showStats() {
-        console.log(this.health, this.speed, this.strength)
+        console.log(`${this.name}'s stats are ${this.health} Health, ${this.speed} Speed and ${this.strength} Strength`)
     }
     dirnkSake() {
         this.strength += 10;
     }
 }
 
-const ninja1 = new Ninja('Aleksey')
-ninja1.sayName();
+class Sensei extends Ninja {
+    constructor(name, health = 200, speed = 10, strength = 10, wisdom = 10){
+        super(name, health, speed, strength, wisdom)
+        this.wisdom = wisdom;
+    }
+    speakWisdom(){
+        console.log('Attitude is the "little" thing that makes a big difference.')
+    }
 
-ninja1.dirnkSake();
-ninja1.showStats();
+}
+
+const sensei1 = new Sensei('Master Bob')
+
+
+const ninja1 = new Ninja('Aleksey')
+
+
+sensei1.sayName();
+sensei1.dirnkSake();
+sensei1.showStats();
+sensei1.speakWisdom();
